@@ -20,9 +20,23 @@ public class InputView {
             + "ex) 백엔드, 레벨1, 자동차경주";
 
     public static String selectMatchingOption() {
-        printSelectMatchingOptionMessage();
+        try {
+            printSelectMatchingOptionMessage();
 
-        return inputValue();
+            final String inputValue = inputValue();
+            final String[] splitInputValue = inputValue.split(",");
+
+            if (splitInputValue.length != 3) {
+                throw new IllegalArgumentException("입력 형식이 잘못되었습니다. 다시 입력해주세요.");
+            }
+
+            return inputValue;
+        } catch (IllegalArgumentException illegalArgumentException) {
+            System.out.println(illegalArgumentException.getMessage());
+
+            return selectMatchingOption();
+        }
+
     }
 
     public static void printSelectMatchingOptionMessage() {
