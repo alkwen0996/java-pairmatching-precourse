@@ -15,10 +15,10 @@ public enum Course {
     }
 
     public static boolean isExist(String inputCourseName){
-        final Course[] values = Course.values();
+        final Course[] courses = Course.values();
 
-        for (int i = 0; i < values.length; i++) {
-            if(values.toString().equals(inputCourseName)){
+        for (Course course : courses) {
+            if (course.toString().equals(inputCourseName)) {
                 return true;
             }
         }
