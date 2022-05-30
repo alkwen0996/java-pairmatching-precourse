@@ -19,7 +19,13 @@ public class InputView {
             + "과정, 레벨, 미션을 선택하세요.\n"
             + "ex) 백엔드, 레벨1, 자동차경주";
 
-    public static void printSelectMatchingOptionMessage(){
+    public static String selectMatchingOption() {
+        printSelectMatchingOptionMessage();
+
+        return inputValue();
+    }
+
+    public static void printSelectMatchingOptionMessage() {
         System.out.println(SELECT_MATCHING_OPTION_MESSAGE);
     }
 
@@ -28,7 +34,7 @@ public class InputView {
             printSelectFunctionMessage();
 
             return Integer.parseInt(inputValue());
-        }catch (IllegalArgumentException illegalArgumentException){
+        } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getMessage());
 
             return selectFunctionNumber();
