@@ -10,4 +10,8 @@ public class Crews {
         return crews.size() % 2 == 0;
     }
 
+    public List<Crew> shuffleCrews(List<Crew> crews){
+        return Randoms.shuffle(crews);
+    }
+
 }
